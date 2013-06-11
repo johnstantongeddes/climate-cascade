@@ -1,5 +1,22 @@
+# Files to ignore
+*.zip
+*.bin
+
 # History files
-.Rhistory
+*.Rhistory
 
 # Example code in package build process
 *-Ex.R
+
+# latex accessory files
+*.aux
+*.glo
+*.log
+*.toc
+*.out
+*.synctex.gz
+
+# raster files
+*.bil
+*.hdr
+
