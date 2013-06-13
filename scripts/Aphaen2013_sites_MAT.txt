@@ -1,31 +1,31 @@
 site_name	state	lon	lat	MATx10	MAT
 Reed Bingham State Park	GA	-83.111	31.123	192	19.2
 Cabin Creek	WV	-81.035	38.111	109	10.9
-Great Smoky Mountains NP	TN	-83	35	112	11.2
+Great Smoky Mountains NP	TN	-83	35	150	15
 Piedmont	GA	-83	31	192	19.2
-Francis Marion NF	SC	-83	32	183	18.3
-Sesquicentennial SP	SC	-80	34	169	16.9
-Caesar's Head SP	SC	-82	35	153	15.3
-Hitchcock Woods	SC/GA	-81	33	179	17.9
-Raleigh	NC	-78	35	161	16.1
-NC2	NC	-80	35	160	16
-Jefferson National Forest	VA	-80	37	116	11.6
+Francis Marion NF	SC	-83	32	185	18.5
+Sesquicentennial SP	SC	-80	34	171	17.1
+Caesar's Head SP	SC	-82	35	155	15.5
+Hitchcock Woods	SC/GA	-81	33	181	18.1
+Raleigh	NC	-78	35	164	16.4
+NC2	NC	-80	35	161	16.1
+Jefferson National Forest	VA	-80	37	130	13
 Monogahela National Forest	WV	-79	38	115	11.5
-Aroostook SP	ME	-67	46	45	4.5
-ME2	ME	-68	45	54	5.4
-ME3	ME	-69	45	54	5.4
-ME4	ME	-69	44	76	7.6
-NH1	NH	-71	44	55	5.5
-NH2	NH	-71	43	80	8
-Molly Bog	VT	-72	44	58	5.8
-VT2	VT	-72	43	62	6.2
-Harvard Forest	MA	-76	42	78	7.8
-MA2	MA	-73	42	71	7.1
-William Penn SF	PA	-76	39	130	13
-Buchanan SF	PA	-78	39	117	11.7
-Rothrock SF	PA	-77	40	109	10.9
-Loyalsock SF	PA	-76	41	87	8.7
-Promised Lands SP	PA	-75	41	87	8.7
+Aroostook SP	ME	-67	46	50	5
+ME2	ME	-68	45	58	5.8
+ME3	ME	-69	45	61	6.1
+ME4	ME	-69	44	78	7.8
+NH1	NH	-71	44	63	6.3
+NH2	NH	-71	43	87	8.7
+Molly Bog	VT	-72	44	51	5.1
+VT2	VT	-72	43	70	7
+Harvard Forest	MA	-76	42	72	7.2
+MA2	MA	-73	42	84	8.4
+William Penn SF	PA	-76	39	129	12.9
+Buchanan SF	PA	-78	39	118	11.8
+Rothrock SF	PA	-77	40	112	11.2
+Loyalsock SF	PA	-76	41	79	7.9
+Promised Lands SP	PA	-75	41	92	9.2
 Roosa Gap SF	NY	-73	41	108	10.8
-Slide Mountain SF	NY	-74	42	75	7.5
-Capital District WMA	NY	-73	42	71	7.1
+Slide Mountain SF	NY	-74	42	92	9.2
+Capital District WMA	NY	-73	42	84	8.4

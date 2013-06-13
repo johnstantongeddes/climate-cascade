@@ -4,9 +4,14 @@ Script to make a map and add points
 Load libraries
 
 ```{r setup}
+#sessionInfo()
+
 library(raster)
+library(rgdal) # NOTE: have to have [gdal](http://www.gdal.org/) and [PROJ.4](http://trac.osgeo.org/proj/) install on PATH
 library(dismo)
 library(maptools)
+library(maps)
+library(ggplot2)
 ```
 
 
@@ -50,4 +55,32 @@ Plot NorthEastern US and add points for sampling sites. Note MAT is still multip
 plot(w, 1, xlim=c(-90, -60), ylim=c(25,50), axes=TRUE)
 points(dbio1$lon, dbio1$lat, col="black", pch=20, cex=0.75)
 ```
+
+
+Create same plot using ggplot2, with help from [stackoveflow](http://stackoverflow.com/questions/9422167/how-do-i-plot-a-single-point-on-a-world-map-using-ggplot2)
+
+TODO: need to add MAT to plot....
+
+```{r ggplot}
+eUSA <- map_data('state', region=c('florida', 'south carolina', 'north carolina', 'georgia', 'virginia', 'west virginia', 'maryland', 'delaware', 'new jersey', 'rhode island', 'new york', 'connecticut', 'massachusetts', 'pennyslvania', 'vermont', 'new hampshire', 'maine', 'alabama', 'tennessee', 'kentucky', 'ohio'))
+
+p <- ggplot(legend=FALSE) +
+geom_path( data=eUSA, aes(x=long, y=lat,group=group)) +
+theme(panel.background = element_blank()) +
+theme(panel.grid.major = element_blank()) +
+theme(panel.grid.minor = element_blank()) +
+theme(axis.text.x = element_blank(),axis.text.y = element_blank()) +
+theme(axis.ticks = element_blank()) +
+xlab("") + ylab("")
+
+# Sites to add to plot:
+sites <- d[,c("lon", "lat")]
+p <- p + geom_point(data=sites, aes(lon, lat), colour="green", size=4)
+p
+```
+
+Hmmm...looks like points are out of place...probably due to Google Earth giving DD'MM'SS and R plots expecting DD.DDDD
+
+Would be cool to make animated plot showing changes in temperature over past 100 years using something like [this](http://r-nold.blogspot.com/2012/08/provincial-monthly-rainfall-of.html)
+
 

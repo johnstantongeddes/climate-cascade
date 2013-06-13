@@ -5,11 +5,25 @@ Load libraries
 
 
 ```r
+# sessionInfo()
+
 library(raster)
 ```
 
 ```
 ## Loading required package: sp
+```
+
+```r
+library(rgdal)  # NOTE: have to have [gdal](http://www.gdal.org/) and [PROJ.4](http://trac.osgeo.org/proj/) install on PATH
+```
+
+```
+## rgdal: version: 0.8-9, (SVN revision 470) Geospatial Data Abstraction
+## Library extensions to R successfully loaded Loaded GDAL runtime: GDAL
+## 1.9.0, released 2011/12/29 Path to GDAL shared files: /usr/share/gdal/1.9
+## Loaded PROJ.4 runtime: Rel. 4.7.1, 23 September 2009, [PJ_VERSION: 470]
+## Path to PROJ.4 shared files: (autodetected)
 ```
 
 ```r
@@ -36,6 +50,11 @@ library(maptools)
 ## gpclibPermit()
 ```
 
+```r
+library(maps)
+library(ggplot2)
+```
+
 
 
 Get climate data. Use highest scale resolution (10deg) for faster download at large scale. Other options are 5, 2.5 and 0.5 (which requires downloading individual tiles)
@@ -43,89 +62,6 @@ Get climate data. Use highest scale resolution (10deg) for faster download at la
 
 ```r
 w <- getData("worldclim", var = "bio", res = 10)
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```
-## Warning: there is no package called 'rgdal'
-```
-
-```r
 names(w)
 ```
 
@@ -192,10 +128,10 @@ head(dbio1)
 ##                  site_name state    lon   lat MATx10  MAT
 ## 1  Reed Bingham State Park    GA -83.11 31.12    192 19.2
 ## 2              Cabin Creek    WV -81.03 38.11    109 10.9
-## 3 Great Smoky Mountains NP    TN -83.00 35.00    112 11.2
+## 3 Great Smoky Mountains NP    TN -83.00 35.00    150 15.0
 ## 4                 Piedmont    GA -83.00 31.00    192 19.2
-## 5        Francis Marion NF    SC -83.00 32.00    183 18.3
-## 6      Sesquicentennial SP    SC -80.00 34.00    169 16.9
+## 5        Francis Marion NF    SC -83.00 32.00    185 18.5
+## 6      Sesquicentennial SP    SC -80.00 34.00    171 17.1
 ```
 
 ```r
@@ -216,5 +152,36 @@ points(dbio1$lon, dbio1$lat, col = "black", pch = 20, cex = 0.75)
 ```
 
 ![plot of chunk plot](figure/plot.png) 
+
+
+
+Create same plot using ggplot2, with help from [stackoveflow](http://stackoverflow.com/questions/9422167/how-do-i-plot-a-single-point-on-a-world-map-using-ggplot2)
+
+TODO: need to add MAT to plot....
+
+
+```r
+eUSA <- map_data("state", region = c("florida", "south carolina", "north carolina", 
+    "georgia", "virginia", "west virginia", "maryland", "delaware", "new jersey", 
+    "rhode island", "new york", "connecticut", "massachusetts", "pennyslvania", 
+    "vermont", "new hampshire", "maine", "alabama", "tennessee", "kentucky", 
+    "ohio"))
+
+p <- ggplot(legend = FALSE) + geom_path(data = eUSA, aes(x = long, y = lat, 
+    group = group)) + theme(panel.background = element_blank()) + theme(panel.grid.major = element_blank()) + 
+    theme(panel.grid.minor = element_blank()) + theme(axis.text.x = element_blank(), 
+    axis.text.y = element_blank()) + theme(axis.ticks = element_blank()) + xlab("") + 
+    ylab("")
+
+# Sites to add to plot:
+sites <- d[, c("lon", "lat")]
+p <- p + geom_point(data = sites, aes(lon, lat), colour = "green", size = 4)
+p
+```
+
+![plot of chunk ggplot](figure/ggplot.png) 
+
+
+Hmmm...looks like points are out of place...probably due to Google Earth giving DD'MM'SS and R plots expecting DD.DDDD
 
 
