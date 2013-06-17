@@ -1,6 +1,8 @@
-% Sampling and shipping protocol
-% Sara Helms-Cahan
-% 2013-06-09
+Sampling and shipping protocol
+================================
+
+**Author:** Sara Helms-Cahan
+**Date:** 2013-06-09
 
 ## Sample size goal
 
