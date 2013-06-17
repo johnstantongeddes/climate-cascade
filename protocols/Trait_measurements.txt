@@ -1,0 +1,30 @@
+Trait measurements protocol
+
+Receiving
+Transfer colonies to new nest boxes (~100 workers in each nest)
+Remove all brood, and then add 5 large larvae (to help break down protein)
+Place in Phytotron (5 colonies per temperature treatment for each sampling region)
+
+Samples to collect before
+Live pupae [Aaron]
+5 workers (CHC's) [Brian]
+Stable isotope (before samples) [Katie]
+Gut samples
+
+Development Traits
+Check for first appearance of eggs, larvae, pupae, and callow adults 
+Collect dead workers weekly and freeze (for mortality rate)
+After 80 days - weigh total workers and total brood
+Remove 5 pupae per colony for dry-weight and head width (save dry pupae for stable isotope).
+Get CTmax and CTmin at end of experiment [Katie]
+
+Transcriptome samples
+Select near-dark workers (10) for transcriptome at 1pm 
+Static heat shock 37¼, 1hr, collect in LN2 (5 workers, and 5 control)
+Store in -80 or LN2
+Ship to UVM on dry ice
+
+
+Temperatures (±3¼)
+20, 23, 26, 31
+
