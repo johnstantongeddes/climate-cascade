@@ -19,3 +19,9 @@ File hierarchy for project repository:
     |  |  |-- doc      # Directory for documents; methods, manuscripts, etc  
     |  |-- CT-max-min  # Directory for CTmax/min project  
     ...repeat for all projects...new projects can be added as necessary...
+
+
+Maintainer: [John Stanton-Geddes](john.stantongeddes.research@gmail.com)  
+Contributors:
+
+Probably should add something about the license...open and reuse and all...
