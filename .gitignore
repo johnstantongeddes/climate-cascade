@@ -1,25 +1,26 @@
-# Files to ignore
-*.zip
-*.bin
+## .gitignore
+## John Stanton-Geddes
+## 2013-07-22
 
-# History files
-*.Rhistory
+## Ignore ALL files except specified scripts and text files. This resolves problem with intermediate bioinformatic (...fastq.gz) being added when I don't want to track them 
 
-# Example code in package build process
-*-Ex.R
 
-# latex accessory files
-*.aux
-*.glo
-*.log
-*.toc
-*.out
-*.synctex.gz
+# Ignore everything
+*
 
-# raster files
-*.bil
-*.hdr
+# Don't ignore subdirectories, so we can recurse into them
+!*/
 
-# Ignore /data directory in any projects so as to avoid publishing data on public repository
-# note the use of ** (since git 1.8.2) that matches 0 or more levels of subdirectory
-projects/**/data
+# Don't ignore .gitignore
+!.gitignore
+
+# Don't ignore R, python, perl, bash scripts, text, latex and markdown files
+!*.R
+!*.Rmd
+!*.Rsw
+!*.py
+!*.pl
+!*.sh
+!*.md
+!*.txt
+!*.tex
