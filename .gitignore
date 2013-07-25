@@ -24,3 +24,7 @@
 !*.md
 !*.txt
 !*.tex
+
+# Ignore everything in /data directories. Can keep data private in these folders, or also store intermediate results not to be tracked by git
+# note the use of ** that matches 0 or more levels of subdirectory (since git 1.8.2)
+projects/**/data
