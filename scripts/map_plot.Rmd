@@ -53,7 +53,7 @@ Plot NorthEastern US and add points for sampling sites. Note MAT is still multip
 
 ```{r plot}
 plot(w, 1, xlim=c(-90, -60), ylim=c(25,50), axes=TRUE)
-points(dbio1$lon, dbio1$lat, col="black", pch=20, cex=0.75)
+points(-dbio1$lon, dbio1$lat, col="black", pch=20, cex=0.75)
 ```
 
 
@@ -75,7 +75,7 @@ xlab("") + ylab("")
 
 # Sites to add to plot:
 sites <- d[,c("lon", "lat")]
-p <- p + geom_point(data=sites, aes(lon, lat), colour="green", size=4)
+p <- p + geom_point(data=sites, aes(-lon, lat), colour="green", size=4)
 p
 ```
 
