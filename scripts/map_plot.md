@@ -19,11 +19,13 @@ library(rgdal)  # NOTE: have to have [gdal](http://www.gdal.org/) and [PROJ.4](h
 ```
 
 ```
-## rgdal: version: 0.8-9, (SVN revision 470) Geospatial Data Abstraction
-## Library extensions to R successfully loaded Loaded GDAL runtime: GDAL
-## 1.9.0, released 2011/12/29 Path to GDAL shared files: /usr/share/gdal/1.9
-## Loaded PROJ.4 runtime: Rel. 4.7.1, 23 September 2009, [PJ_VERSION: 470]
-## Path to PROJ.4 shared files: (autodetected)
+## rgdal: version: 0.8-6, (SVN revision Unversioned directory) Geospatial
+## Data Abstraction Library extensions to R successfully loaded Loaded GDAL
+## runtime: GDAL 1.9.0, released 2011/12/29 Path to GDAL shared files:
+## /Library/Frameworks/R.framework/Versions/2.15/Resources/library/rgdal/gdal
+## Loaded PROJ.4 runtime: Rel. 4.8.0, 6 March 2012, [PJ_VERSION: 480] Path to
+## PROJ.4 shared files:
+## /Library/Frameworks/R.framework/Versions/2.15/Resources/library/rgdal/proj
 ```
 
 ```r
@@ -89,13 +91,13 @@ head(d)
 ```
 
 ```
-##                  site_name state    lon   lat
-## 1  Reed Bingham State Park    GA -83.11 31.12
-## 2              Cabin Creek    WV -81.03 38.11
-## 3 Great Smoky Mountains NP    TN -83.00 35.00
-## 4                 Piedmont    GA -83.00 31.00
-## 5        Francis Marion NF    SC -83.00 32.00
-## 6      Sesquicentennial SP    SC -80.00 34.00
+##               site_name state   lon   lat
+## 1  Bradley Public Lands    ME 68.53 44.93
+## 2    Kennebec Highlands    ME 69.92 44.57
+## 3             Molly Bog    VT 72.64 44.50
+## 4           Rugar Woods    NY 73.49 44.49
+## 5            East Woods    VT 73.20 44.44
+## 6 Merriman State Forest    NH 71.14 44.11
 ```
 
 ```r
@@ -103,11 +105,11 @@ str(d)
 ```
 
 ```
-## 'data.frame':	30 obs. of  4 variables:
-##  $ site_name: Factor w/ 30 levels "Aroostook SP",..: 24 3 7 21 6 27 4 9 23 18 ...
-##  $ state    : Factor w/ 13 levels "GA","MA","ME",..: 1 13 10 1 8 8 8 9 4 4 ...
-##  $ lon      : num  -83.1 -81 -83 -83 -83 ...
-##  $ lat      : num  31.1 38.1 35 31 32 ...
+## 'data.frame':	26 obs. of  4 variables:
+##  $ site_name: Factor w/ 26 levels "Albany Pine Bush",..: 6 15 19 23 9 18 24 3 1 11 ...
+##  $ state    : Factor w/ 12 levels "GA","MA","ME",..: 3 3 12 6 12 5 3 5 6 2 ...
+##  $ lon      : num  68.5 69.9 72.6 73.5 73.2 ...
+##  $ lat      : num  44.9 44.6 44.5 44.5 44.4 ...
 ```
 
 
@@ -125,13 +127,13 @@ head(dbio1)
 ```
 
 ```
-##                  site_name state    lon   lat MATx10  MAT
-## 1  Reed Bingham State Park    GA -83.11 31.12    192 19.2
-## 2              Cabin Creek    WV -81.03 38.11    109 10.9
-## 3 Great Smoky Mountains NP    TN -83.00 35.00    150 15.0
-## 4                 Piedmont    GA -83.00 31.00    192 19.2
-## 5        Francis Marion NF    SC -83.00 32.00    185 18.5
-## 6      Sesquicentennial SP    SC -80.00 34.00    171 17.1
+##               site_name state   lon   lat MATx10  MAT
+## 1  Bradley Public Lands    ME 68.53 44.93     99  9.9
+## 2    Kennebec Highlands    ME 69.92 44.57     98  9.8
+## 3             Molly Bog    VT 72.64 44.50    101 10.1
+## 4           Rugar Woods    NY 73.49 44.49     98  9.8
+## 5            East Woods    VT 73.20 44.44     99  9.9
+## 6 Merriman State Forest    NH 71.14 44.11    104 10.4
 ```
 
 ```r
@@ -148,7 +150,7 @@ Plot NorthEastern US and add points for sampling sites. Note MAT is still multip
 
 ```r
 plot(w, 1, xlim = c(-90, -60), ylim = c(25, 50), axes = TRUE)
-points(dbio1$lon, dbio1$lat, col = "black", pch = 20, cex = 0.75)
+points(-dbio1$lon, dbio1$lat, col = "black", pch = 20, cex = 0.75)
 ```
 
 ![plot of chunk plot](figure/plot.png) 
@@ -175,7 +177,7 @@ p <- ggplot(legend = FALSE) + geom_path(data = eUSA, aes(x = long, y = lat,
 
 # Sites to add to plot:
 sites <- d[, c("lon", "lat")]
-p <- p + geom_point(data = sites, aes(lon, lat), colour = "green", size = 4)
+p <- p + geom_point(data = sites, aes(-lon, lat), colour = "green", size = 4)
 p
 ```
 
@@ -183,5 +185,7 @@ p
 
 
 Hmmm...looks like points are out of place...probably due to Google Earth giving DD'MM'SS and R plots expecting DD.DDDD
+
+Would be cool to make animated plot showing changes in temperature over past 100 years using something like [this](http://r-nold.blogspot.com/2012/08/provincial-monthly-rainfall-of.html)
 
 
