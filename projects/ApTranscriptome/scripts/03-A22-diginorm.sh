@@ -1,10 +1,11 @@
-#!/obin/bash
+#!/bin/bash
 
-####################################################################################################
+###################################################################################################
 ## Script to run [digital normalization](http://ged.msu.edu/papers/2012-diginorm/) for mRNAseq data
-## John Stanton-Geddes
-## 2013-07-26
-####################################################################################################
+## Author: John Stanton-Geddes
+## Created: 2013-07-26
+## Modified: 2013-07-30 
+###################################################################################################
 
 # Set PYTHONPATH to khmer module
 export PYTHONPATH=/opt/software/khmer/python
@@ -32,11 +33,17 @@ mkdir -p $outdir
 # Loop across notCombined reads, same as before but inclue `p` flag. 
 for samp in "${samples[@]]}"
 do
-    /opt/software/khmer/scripts/normalize-by-median.py -R diginorm.out -C 20 -k 21 -N 4 -x 2e9 -p $indir/${samp}.notCombined.fastq
-    mv ${samp}.notCombined.fastq.keep $outdir/.
+    # Add Illumina 1.3 style read tags '/1' and '/2' to interleaved Illumina file 
+	/home/projects/climate-cascade/scripts/interleave-illumina-backward.py $indir/${samp}.notCombined.fastq > $indir/${samp}.notCombined.fastq.out
+	# Digital normalization
+    /opt/software/khmer/scripts/normalize-by-median.py -R diginorm.out -C 20 -k 21 -N 4 -x 2e9 -p $indir/${samp}.notCombined.fastq.out
+    mv ${samp}.notCombined.fastq.out.keep $outdir/.
     date
 done
 
 # One final normalization over all files. Increased memory allocation
 /opt/software/khmer/scripts/normalize-by-median.py -R diginorm-final.out -C 20 -k 21 -N 4 -x 4e9 $outdir/A22*
+# Move final normalized files to data directory
+mv A22* $outdir/.
+
 date
