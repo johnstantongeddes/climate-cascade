@@ -1,6 +1,6 @@
 #!/bin/bash
 
-###################################################################################################
+##################################################################################################
 ## Script to generate simulate Illumina RNAseq data and validate transcriptome assembly
 ## Author: John Stanton-Geddes
 ## Created: 2013-08-12
@@ -49,16 +49,59 @@ mv sim-interleaved.fastq.keep ../data/.
 echo -e "Done with interleaving files:" `date` "\n"
 
 # Merge reads with FLASH
-flash --phred-offset 33 --interleaved-input --interleaved-output --output-directory $datadir $datadir/sim-interleaved.fastq.keep
+flash --phred-offset 33 --interleaved-input --interleaved-output --output-directory $datadir --output-prefix sim $datadir/sim-interleaved.fastq.keep
 echo -e "Done with FLASH:" `date` "\n"
 
-# Assemble transcriptome with velvet-oases
-#velveth 
+## Assemble transcriptome with velvet-oases
+for i in {19..25..2}; do 
+    # velveth
+    velveth $datadir/sim-oases-$i $i -fastq -shortPaired ${datadir}/sim.extendedFrags.fastq -short ${datadir}/sim.notCombined.fastq
+    # velvetg
+    velvetg $datadir/sim-oases-$i -read_trkg yes
+    # oases
+    oases $datadir/sim-oases-$i -ins_length 180
 
-# Map simulated reads to velvet-oases transcriptome with BWA
+   echo -e "Done with velvet-oases for kmer $i:" `date` "\n"
+done 
+
+# check basic stats
+python /opt/software/khmer/sandbox/assemstats2.py 300 $datadir/sim-oases*/transcripts.fa 
+
+# merge assemblies
+velveth $datadir/sim-mergedAssembly/ 25 -long $datadir/sim-oases*/transcripts.fa 
+velvetg $datadir/sim-mergedAssembly/ -read_trkg yes -conserveLong yes
+oases $datadir/sim-mergedAssembly/ -merge yes
+
+python /opt/software/khmer/sandbox/assemstats2.py 300 $datadir/sim-MergedAssembly/transcripts.fa 
 
 
-# Assemble transcriptome with Trinity using built-in normalization
+## Map simulated reads to velvet-oases transcriptome with BWA
+
+# Index transcriptome fasta file
+bwa index $simfasta 
+
+# Map paired reads; using trimmed and filtered reads
+bwa aln $simfasta $datadir/reads_end1.fq > $datadir/sim-mapped-reads_end1.sai
+bwa aln $simfasta $datadir/reads_end2.fq > $datadir/sim-mapped-reads_end2.sai
+# convert sai to SAM and combine files
+bwa sampe $simfasta $datadir/sim-mapped-reads_end1.sai $datadir/sim-mapped-reads_end1.sai $datadir/reads_end1.fq $datadir/reads_end2.fq > sim-mapped-reads.sam
+# convert to BAM
+samtools faidx $simfasta #index
+samtools import ${simfasta}.fai $datadir/sim-mapped-reads.sam $datadir/sim-mapped-reads.bam # sam->bam
+samtools sort $datadir/sim-mapped-reads.bam $datadir/sim-mapped-reads.sorted.bam # sort BAM
+samtools index $datadir/sim-mapped-read.sorted.bam # index
+
+# Can view alignment using
+# samtools tview $datadir/sim-mapped-read.sorted.bam $simfasta
+
+## Gene expression
+
+# first, turn original Arabidopsis mRNA into a BED file using script from http://ged.msu.edu/angus/tutorials-2013/rnaseq_bwa_counting.html?highlight=bwa
+python /home/projects/climate-cascade/scripts/make_bed_from_fasta.py $simfasta > $datadir/simfasta.bed
+# count reads that have mapping quality of 30 or better (-q 30)
+multiBamCov -q 30 -p -bams $datadir/sim-mapped-reads.sorted.bam -bed $datadir/simfasta.bed > $datadir/sim_transcriptome_counts.txt
+
+## Assemble transcriptome with Trinity using built-in normalization
 
 
-# Map simulated reads to Trinity assembly with BWA
+## Map simulated reads to Trinity assembly with BWA
