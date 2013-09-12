@@ -7,7 +7,7 @@ Load libraries
 #sessionInfo()
 
 library(raster)
-library(rgdal) # NOTE: have to have [gdal](http://www.gdal.org/) and [PROJ.4](http://trac.osgeo.org/proj/) install on PATH
+library(rgdal) # NOTE: have to have [gdal](http://www.gdal.org/) and [PROJ.4](http://trac.osgeo.org/proj/) install on PATH. For Ubuntu, can do `sudo apt-get install libgdal1` and `sudo apt-get install libproj0` and `sudo apt-get install libproj-dev`
 library(dismo)
 library(maptools)
 library(maps)
@@ -17,11 +17,11 @@ library(ggplot2)
 
 Get climate data. Use highest scale resolution (10deg) for faster download at large scale. Other options are 5, 2.5 and 0.5 (which requires downloading individual tiles)
 
-```{r loadclimdata}
+```{r loadclimdata, cache=TRUE}
 w <- getData('worldclim', var='bio', res=10)
 names(w)
 # Plot first bioclim dimension (MAT) to check download worked
-plot(w, 1)
+plot(w, 1, col=colorRampPalette(c("blue","green","red"))(255))
 ```
 
 
@@ -52,8 +52,9 @@ write.table(dbio1, file="Aphaen2013_sites_MAT.txt", quote=FALSE, sep="\t", row.n
 Plot NorthEastern US and add points for sampling sites. Note MAT is still multiplied by 10.
 
 ```{r plot}
-plot(w, 1, xlim=c(-90, -60), ylim=c(25,50), axes=TRUE)
+plot(w, 1, xlim=c(-90, -60), ylim=c(25,50), axes=TRUE, legend=FALSE, col=colorRampPalette(c("blue","green","red"))(255))
 points(-dbio1$lon, dbio1$lat, col="black", pch=20, cex=0.75)
+legend("right", legend="MAT", col=colorRampPalette(c("blue","green","red"))(255) )
 ```
 
 
