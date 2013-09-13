@@ -4,8 +4,6 @@ Script to make a map and add points
 Load libraries
 
 ```{r setup}
-#sessionInfo()
-
 library(raster)
 library(rgdal) # NOTE: have to have [gdal](http://www.gdal.org/) and [PROJ.4](http://trac.osgeo.org/proj/) install on PATH. For Ubuntu, can do `sudo apt-get install libgdal1` and `sudo apt-get install libproj0` and `sudo apt-get install libproj-dev`
 library(dismo)
@@ -84,4 +82,6 @@ Hmmm...looks like points are out of place...probably due to Google Earth giving 
 
 Would be cool to make animated plot showing changes in temperature over past 100 years using something like [this](http://r-nold.blogspot.com/2012/08/provincial-monthly-rainfall-of.html)
 
-
+```{r}
+sessionInfo()
+```
