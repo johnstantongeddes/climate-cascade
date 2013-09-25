@@ -6,11 +6,11 @@
 ## 2013-07-26
 ####################################################i
 
-indir="/home/projects/climate-cascade/projects/ApTranscriptome/results/01-trimclip"
-outdir="/home/projects/climate-cascade/projects/ApTranscriptome/data/merged-interleaved"
+indir="/home/projects/climate-cascade/projects/ApTranscriptome/data/diginorm"
+outdir="/home/projects/climate-cascade/projects/ApTranscriptome/data/merged"
 
 # Set variables
-samples=(A22-00 A22-03 A22-07 A22-10 A22-14 A22-17 A22-21 A22-24 A22-28 A22-31 A22-35 A22-38)
+samples=(A22-00 A22-03 A22-07 A22-10 A22-14 A22-17 A22-21 A22-24 A22-28 A22-31 A22-35 A22-38 A22-spikein)
 
 # Make output directory for files
 mkdir -p $outdir
