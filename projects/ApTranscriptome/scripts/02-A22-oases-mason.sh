@@ -22,7 +22,7 @@ do
 done
 
 # Run velvetg and oases
-for i in 19 21 23 25 27 29 31 33 35 37 39 41 43 45 47 49 
+for i in 19 23 27 31 35 39 
 do
     velvetg ${indir}/standard-oases-assembly_$i -read_trkg yes -ins_length 180
     oases ${indir}/standard-oases-assembly_$i 
