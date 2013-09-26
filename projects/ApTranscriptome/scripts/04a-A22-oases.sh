@@ -24,4 +24,4 @@ velvetg $outdir/A22-oases-21 -read_trkg yes
 oases $outdir/A22-oases-21 -ins_length 180
 
 # Summary statistics
-python /opt/software/khmer/sandbox/assemstats2.py $outdir/A22-oases-21/transcripts.fa
+python /opt/software/khmer/sandbox/assemstats2.py 100 $outdir/A22-oases-21/transcripts.fa
