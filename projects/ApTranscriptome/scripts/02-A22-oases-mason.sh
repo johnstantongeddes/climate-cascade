@@ -16,10 +16,7 @@ indir="/N/dc/scratch/tg-johnsg/results"
 outdir="/N/dc/scratch/tg-johnsg/results/standard-oases-assembly"
 
 # Run velveth
-for i in 19 23 27 31 35 39 
-do
-    velveth $outdir $i -fastq -shortPaired ${indir}/A22-00-interleaved.fq ${indir}/A22-03-interleaved.fq ${indir}/A22-07-interleaved.fq ${indir}/A22-10-interleaved.fq ${indir}/A22-14-interleaved.fq ${indir}/A22-17-interleaved.fq ${indir}/A22-21-interleaved.fq ${indir}/A22-24-interleaved.fq ${indir}/A22-28-interleaved.fq ${indir}/A22-31-interleaved.fq ${indir}/A22-35-interleaved.fq ${indir}/A22-38-interleaved.fq
-done
+velveth $outdir 19,23,27,31,35,39 -fastq -shortPaired ${indir}/A22-00-interleaved.fq ${indir}/A22-03-interleaved.fq ${indir}/A22-07-interleaved.fq ${indir}/A22-10-interleaved.fq ${indir}/A22-14-interleaved.fq ${indir}/A22-17-interleaved.fq ${indir}/A22-21-interleaved.fq ${indir}/A22-24-interleaved.fq ${indir}/A22-28-interleaved.fq ${indir}/A22-31-interleaved.fq ${indir}/A22-35-interleaved.fq ${indir}/A22-38-interleaved.fq
 
 # Run velvetg and oases
 for i in 19 23 27 31 35 39 
@@ -29,8 +26,8 @@ do
 done
 
 # Merge assemblies
-velveth ${indir}/standard-oases-assembly-merged/ 27 -long ${indir}/standard-oases-assembly*/transcripts.fa
-velvetg ${indir}/standard-oases-assembly-merged/ -read-trkg yes -conserveLong yes
-oases ${indir}/standard-oases-assembly-merged/ -merge
+velveth ${indir}/standard-oases-assembly-merged 27 -long ${indir}/standard-oases-assembly*/transcripts.fa
+velvetg ${indir}/standard-oases-assembly-merged -read_trkg yes -conserveLong yes
+oases ${indir}/standard-oases-assembly-merged -merge
 
 

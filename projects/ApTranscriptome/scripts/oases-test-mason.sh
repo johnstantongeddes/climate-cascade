@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=1,vmem=120gb,walltime=24:00:00
+#PBS -l nodes=1:ppn=1,vmem=120gb,walltime=48:00:00
 
 
 ###################################################################################################
@@ -21,8 +21,8 @@ cd $indir
 velveth $outprefix 19 -shortPaired -fastq A22-00-interleaved.fq A22-03-interleaved.fq A22-07-interleaved.fq A22-10-interleaved.fq A22-14-interleaved.fq A22-17-interleaved.fq A22-21-interleaved.fq A22-24-interleaved.fq A22-28-interleaved.fq A22-31-interleaved.fq A22-35-interleaved.fq A22-38-interleaved.fq
 
 # Run velvetg
-velvetg ${outprefix} -read_trkg yes -ins_length 180
+velvetg ${outprefix}_19 -read_trkg yes -ins_length 180
 
 # Run oases
-oases ${outprefix}
+oases ${outprefix}_19
 
