@@ -10,6 +10,8 @@
 
 # Don't ignore subdirectories, so we can recurse into them
 !*/
+# but ignore planning directory as these are random files kept locally...
+planning/
 
 # Don't ignore .gitignore
 !.gitignore

@@ -10,8 +10,8 @@
 # Set PYTHONPATH to khmer module
 export PYTHONPATH=/opt/software/khmer/python
 
-indir="/home/projects/climate-cascade/projects/ApTranscriptome/data/01-trimclip"
-outdir="/home/projects/climate-cascade/projects/ApTranscriptome/data/02-diginorm"
+indir="/home/projects/climate-cascade/projects/ApTranscriptome/data/trimclip"
+outdir="/home/projects/climate-cascade/projects/ApTranscriptome/data/diginorm"
 
 # Make `outdir` if not already present
 mkdir -p $outdir
@@ -48,3 +48,11 @@ for i in *gz.keep.abundfilt
 do 
     /opt/software/khmer/scripts/extract-paired-reads.py $i
 done
+
+# Move files to diginorm directory and remove intermediate files
+echo "Move final files and clean-up" `date`
+mv *.abundfilt.pe ../diginorm/
+mv *.abundfilt.se ../diginorm/
+
+rm *.abundfilt
+rm *.keep
