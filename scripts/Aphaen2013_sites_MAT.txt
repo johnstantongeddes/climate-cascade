@@ -1,27 +1,100 @@
-site_name	state	lon	lat	MATx10	MAT
-Bradley Public Lands	ME	68.5284	44.9341	99	9.9
-Kennebec Highlands	ME	69.9211	44.5676	98	9.8
-Molly Bog	VT	72.64	44.5	101	10.1
-Rugar Woods	NY	73.4855	44.4906	98	9.8
-East Woods	VT	73.1969	44.4397	99	9.9
-Merriman State Forest	NH	71.1403	44.1111	104	10.4
-Sebago Lake State Park	ME	70.5828	43.9235	107	10.7
-Bear Brook State Park	NH	71.3464	43.0975	110	11
-Albany Pine Bush	NY	73.8569	42.7196	94	9.4
-Harvard Forest	MA	72.2319	42.5628	56	5.6
-Notichview	MA	73.0043	42.4983	13	1.3
-Bard College	NY	73.9169	42.0177	13	1.3
-Black Rock Forest	NY	74.0261	41.4039	70	7
-Delware State Forest	PA	75.6117	41.2979	5	0.5
-Hickory Run State Park	Pa	75.71728	41.022	9	0.9
-Nockamixon State Park	PA	75.23473	40.4691	-38	-3.8
-William Penn State Forest	PA	76.0737	39.7284	105	10.5
-Lynchburg	VA	79.181	37.4211	129	12.9
-Raleigh Chambers	NC	79.0772	36.0364	-50	-5
-Ijams Nature Center	TN	83.8668	35.9568	-79	-7.9
-Blue Ridge Parkway	NC	81.9538	35.9264	-67	-6.7
-Dean's Woods	TN	83.4919	35.6394	-66	-6.6
-Great Smoky Mountains	TN	83.4919	35.6394	-66	-6.6
-Uwharrie National Forest	NC	79.9745	35.3693	-70	-7
-Hitchcock Woods	SC	81.7334	33.5553	-66	-6.6
-Magnolia Springs	GA	81.9574	32.8789	-21	-2.1
+ID	Collection_site	lat	lon	MATx10	County..State	Alive_UVM	dbio1[, 1]	MAT
+ApGXL-01-A	Magnolia Springs, GA	32.8791	81.9572	61	Jenkins, GA	1	-21	6.1
+ApGXL-01-B	Magnolia Springs, GA	32.8795	81.9571	67	Jenkins, GA	1	-21	6.7
+ApGXL-01-C	Magnolia Springs, GA	32.8809	81.9573	64	Jenkins, GA	0	-21	6.4
+ApGXL-02-A	Hitchcock Woods, SC	33.5553	81.7334	140	Aiken, SC	1	-66	14
+ApGXL-02-B	Hitchcock Woods, SC	33.5556	81.7338	164	Aiken, SC	0	-66	16.4
+ApGXL-02-C	Hitchcock Woods, SC	33.5568	81.7289	155	Aiken, SC	0	-66	15.5
+ApGXL-03-A	Francis Marion Univ., SC	34.1867	79.6483	33	Florence, SC	1	-102	3.3
+ApGXL-04-A	Uwharrie National Forest	35.3693	79.9745	210	Troy, NC	1	-70	21
+ApGXL-04-B	Uwharrie National Forest	35.3693	79.9745	210	Troy, NC	0	-70	21
+ApGXL-04-C	Uwharrie National Forest	35.3693	79.9745	210	Troy, NC	0	-70	21
+ApGXL-04-D	Uwharrie National Forest	35.3693	79.9745	210	Troy, NC	0	-70	21
+ApGXL-04-E	Uwharrie National Forest	35.3693	79.9745	210	Troy, NC	0	-70	21
+ApGXL-04-F	Uwharrie National Forest	35.3693	79.9745	210	Troy, NC	0	-70	21
+ApGXL-05-A	Great Smoky Mountains National Park, TN (mid-elevation)	35.6362	83.4928	860	Sevier, TN	0	-66	86
+ApGXL-05-B	Great Smoky Mountains National Park, TN (mid-elevation)	35.6363	83.4938	850	Sevier, TN	0	-66	85
+ApGXL-05-C	Great Smoky Mountains National Park, TN (mid-elevation)	35.6363	83.4927	865	Sevier, TN	0	-66	86.5
+ApGXL-05-D	Great Smoky Mountains National Park, TN (mid-elevation)	35.6367	83.493	841	Sevier, TN	0	-66	84.1
+ApGXL-06-A	Dean's Woods, TN	35.9199	83.9498	289	Knox, TN	0	-79	28.9
+ApGXL-06-B	Dean's Woods, TN	35.92	83.9493	235	Knox, TN	1	-79	23.5
+ApGXL-07-A	Blue Ridge Parkway, high elevation	35.9264	81.9538	1249	Spruce Pine, NC	0	-67	124.9
+ApGXL-07-B	Blue Ridge Parkway, high elevation	35.9264	81.9538	1249	Spruce Pine, NC	0	-67	124.9
+ApGXL-08-A	Ijams Nature Center,  TN	35.9557	83.864	303	Knox, TN	0	-79	30.3
+ApGXL-08-B	Ijams Nature Center,  TN	35.9534	83.8625	260	Knox, TN	0	-79	26
+ApGXL-08-C	Ijams Nature Center,  TN	35.9544	83.8627	270	Knox, TN	0	-79	27
+ApGXL-08-D	Ijams Nature Center,  TN	35.9544	83.8627	270	Knox, TN	1	-79	27
+ApGXL-09-A	Raleigh Chambers (Duke forest)	36.0364	79.0772	177	Durham, NC	0	-50	17.7
+ApGXL-09-B	Raleigh Chambers (Duke forest)	36.0364	79.0772	177	Durham, NC	0	-50	17.7
+ApGXL-10-A	Lynchburg, VA (Black Water Creek park)	37.4211	79.181	194	Lynchburg, VA	1	129	19.4
+ApGXL-10-B	Lynchburg, VA (Black Water Creek park)	37.4211	79.181	194	Lynchburg, VA	1	129	19.4
+ApGXL-10-C	Lynchburg, VA (Black Water Creek park)	37.4211	79.181	194	Lynchburg, VA	0	129	19.4
+ApGXL-10-D	Lynchburg, VA (Black Water Creek park)	37.4211	79.181	194	Lynchburg, VA	0	129	19.4
+ApGXL-10-E	Lynchburg, VA (Black Water Creek park)	37.4211	79.181	194	Lynchburg, VA	0	129	19.4
+ApGXL-10-F	Lynchburg, VA (Black Water Creek park)	37.4211	79.181	194	Lynchburg, VA	0	129	19.4
+ApGXL-11-A	William Penn, Pa	39.7255	76.079	292	Nottingham, Pa	0	105	29.2
+ApGXL-11-B	William Penn, Pa	39.7255	76.0789	292	Nottingham, Pa	0	105	29.2
+ApGXL-11-C	William Penn, Pa	39.7258	76.0786	295	Nottingham, Pa	0	105	29.5
+ApGXL-11-D	William Penn, Pa	39.7261	76.0786	305	Nottingham, Pa	1	105	30.5
+ApGXL-12-A	Nockamixon State Park, Pa	40.4392	75.25847	NA	Quakertown, Pa	1	-38	NA
+ApGXL-12-B	Nockamixon State Park, Pa	40.4392	75.25847	NA	Quakertown, Pa	0	-38	NA
+ApGXL-12-C	Nockamixon State Park, Pa	40.4392	75.25847	NA	Quakertown, Pa	0	-38	NA
+ApGXL-12-D	Nockamixon State Park, Pa	40.4396	75.25933	NA	Quakertown, Pa	0	-38	NA
+ApGXL-13-A	Hickory Run State Park, Pa	41.0226	75.71777	NA	White Haven, Pa	0	9	NA
+ApGXL-13-B	Hickory Run State Park, Pa	41.0226	75.71777	NA	White Haven, Pa	1	9	NA
+ApGXL-13-C	Hickory Run State Park, Pa	41.0213	75.7173	NA	White Haven, Pa	0	9	NA
+ApGXL-13-D	Hickory Run State Park, Pa	41.0219	75.7172	NA	White Haven, Pa	0	9	NA
+ApGXL-13-E	Hickory Run State Park, Pa	41.022	75.7173	NA	White Haven, Pa	0	9	NA
+ApGXL-13-F	Hickory Run State Park, Pa	41.0221	75.71719	NA	White Haven, Pa	0	9	NA
+ApGXL-15-A	Delaware State Park, Pa	41.298	75.0112	NA	Greentown, Pa	0	38	NA
+ApGXL-15-B	Delaware State Park, Pa	41.3046	75.0098	NA	Greentown, Pa	0	38	NA
+ApGXL-15-C	Delaware State Park, Pa	41.3012	75.0109	NA	Greentown, Pa	0	38	NA
+ApGXL-15-D	Delaware State Park, Pa	41.3044	75.0093	NA	Greentown, Pa	1	38	NA
+APGXL-16-A	Black Rock Forest, Ny	41.4041	74.0209	NA	Cornwall, Ny	0	70	NA
+APGXL-16-B	Black Rock Forest, Ny	41.404	74.0219	NA	Cornwall, Ny	0	70	NA
+APGXL-16-C	Black Rock Forest, Ny	41.4039	74.0211	NA	Cornwall, Ny	0	70	NA
+APGXL-16-D	Black Rock Forest, Ny	41.4045	74.0203	NA	Cornwall, Ny	0	70	NA
+ApGXL-17-A	Bard College, Ny	42.0174	73.9163	NA	Red Hook, Ny	0	13	NA
+ApGXL-17-B	Bard College, Ny	42.0174	73.9163	NA	Red Hook, Ny	1	13	NA
+ApGXL-17-C	Bard College, Ny	42.0174	73.9163	NA	Red Hook, Ny	0	13	NA
+ApGXL-18-A	Notchview, Ma	42.4983	73.0043	NA	Windsor, Ma	0	13	NA
+ApGXL-18-B	Notchview, Ma	42.4985	73.0267	NA	Windsor, Ma	0	13	NA
+ApGXL-18-C	Notchview, Ma	42.4983	73.0064	NA	Windsor, Ma	0	13	NA
+ApGXL-18-D	Notchview, Ma	42.4984	73.0276	NA	Windsor, Ma	0	13	NA
+ApGXL-19-A	Harvard Forest	42.5628	72.2319	NA	Petersham, MA	1	56	NA
+ApGXL-19-B	Harvard Forest	42.5628	72.2319	NA	Petersham, MA	0	56	NA
+ApGXL-19-C	Harvard Forest	42.56283	72.2319	NA	Petersham, MA	0	56	NA
+ApGXL-19-D	Harvard Forest	42.56283	72.2319	NA	Petersham, MA	0	56	NA
+ApGXL-20-A	Albany Pine Bush, Ny	42.7184	73.8561	NA	Albany, NY	0	94	NA
+ApGXL-20-B	Albany Pine Bush, Ny	42.7194	73.8561	NA	Albany, NY	0	94	NA
+ApGXL-20-C	Albany Pine Bush, Ny	42.7197	73.8566	NA	Albany, NY	1	94	NA
+ApGXL-20-D	Albany Pine Bush, Ny	42.7197	73.8566	NA	Albany, NY	1	94	NA
+ApGXL-21-A	Bear Brook State Park, NH	43.0993	71.3481	NA	Allenstown, NH	1	110	NA
+ApGXL-21-B	Bear Brook State Park, NH	43.0994	71.3481	NA	Allenstown, NH	1	110	NA
+ApGXL-21-C	Bear Brook State Park, NH	43.0996	71.3479	NA	Allenstown, NH	0	110	NA
+ApGXL-21-D	Bear Brook State Park, NH	43.0996	71.3481	NA	Allenstown, NH	0	110	NA
+ApGXL-21-E	Bear Brook State Park, NH	43.0996	71.3481	NA	Allenstown, NH	0	110	NA
+ApGXL-22-A	Sebago Lake State Park, ME	43.9235	70.5828	NA	Raymond, ME	0	107	NA
+ApGXL-22-B	Sebago Lake State Park, ME	43.9237	70.5828	NA	Raymond, ME	1	107	NA
+ApGXL-22-C	Sebago Lake State Park, ME	43.9239	70.5837	NA	Raymond, ME	1	107	NA
+ApGXL-22-D	Sebago Lake State Park, ME	43.9239	70.5837	NA	Raymond, ME	0	107	NA
+ApGXL-23-A	Merriman State Forest, NH	44.1111	71.1403	NA	Silver Lake, NH	0	104	NA
+ApGXL-23-B	Merriman State Forest, NH	44.1193	71.1377	NA	Silver Lake, NH	0	104	NA
+ApGXL-23-C	Merriman State Forest, NH	41.111	71.1368	NA	Silver Lake, NH	0	106	NA
+ApGXL-24-A	UVM East Woods	44.4397	73.1969	978	Burlington, VT	1	99	97.8
+ApGXL-24-B	UVM East Woods	44.4397	73.1969	978	Burlington, VT	0	99	97.8
+ApGXL-24-C	UVM East Woods	44.4397	73.1969	978	Burlington, VT	0	99	97.8
+ApGXL-25-A	Rugar Woods, SUNY Plattsburgh	44.4906	73.4855	NA	Plattsburgh, NY	1	98	NA
+ApGXL-25-B	Rugar Woods, SUNY Plattsburgh	44.4906	73.4855	NA	Plattsburgh, NY	0	98	NA
+ApGXL-25-C	Rugar Woods, SUNY Plattsburgh	44.4906	73.4855	NA	Plattsburgh, NY	0	98	NA
+ApGXL-25-D	Rugar Woods, SUNY Plattsburgh	44.4906	73.4855	NA	Plattsburgh, NY	0	98	NA
+ApGXL-26-A	Molly Bog, VT	44.5	72.64	236	Stowe, Vt	1	101	23.6
+ApGXL-26-B	Molly Bog, VT	44.5	72.64	236	Stowe, Vt	0	101	23.6
+ApGXL-26-C	Molly Bog, VT	44.5	72.64	236	Stowe, Vt	1	101	23.6
+ApGXL-26-D	Molly Bog, VT	44.5	72.64	236	Stowe, Vt	0	101	23.6
+ApGXL-26-E	Molly Bog, VT	44.5	72.64	236	Stowe, Vt	0	101	23.6
+ApGXL-27-A	Kennebec Highlands, ME	44.5675	69.9211	NA	Belgrade Lakes, ME	0	98	NA
+ApGXL-27-B	Kennebec Highlands, ME	44.5676	69.9211	NA	Belgrade Lakes, ME	0	98	NA
+ApGXL-27-C	Kennebec Highlands, ME	44.5676	69.9211	NA	Belgrade Lakes, ME	0	98	NA
+ApGXL-28-A	Bradley Public Lands, ME	44.9341	68.5284	NA	Bradford, ME	0	99	NA
+ApGXL-28-B	Bradley Public Lands, ME	44.9818	68.5174	NA	Bradford, ME	0	99	NA
