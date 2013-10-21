@@ -8,7 +8,7 @@
 ######################################################################################################################################################################################
 
 indir="/home/data/Aphaeno_transcriptome/130509_SN1073_0326_BD25DAACXX/Project_Stanton-Geddes_Project_001" 
-outdir="/home/projects/climate-cascade/projects/AphTranscriptome/data/trimclip" 
+outdir="/home/projects/climate-cascade/projects/ApTranscriptome/data/trimclip" 
 
 # Create outdir directory for fastq files
 mkdir -p $outdir
@@ -23,3 +23,7 @@ do
     # Run `trim_galore`.
     trim_galore --quality 20 --phred33 --fastqc_args "--o $outdir" --length 20 --paired --output_dir $outdir $indir/${samp}-R1.fastq $indir/${samp}-R2.fastq
 done
+
+# Trim simulated spike-in reads
+trim_galore --quality 20 --phred33 --fastqc_args "--o $outdir" --length 20 --paired --output_dir $outdir ../data/A22-si-R1.fastq ../data/A22-si-R2.fastq
+
