@@ -7,14 +7,30 @@
 ## Modified: 2013-07-30 
 ###################################################################################################
 
-indir="/home/projects/climate-cascade/projects/ApTranscriptome/data/merged"
-outdir="/home/projects/climate-cascade/projects/ApTranscriptome/data/A22-oases-assembly"
+indir="/home/projects/climate-cascade/projects/ApTranscriptome/data/diginorm"
+oasesout="/home/projects/climate-cascade/projects/ApTranscriptome/data/A22-oases-assembly"
+trinityout="/home/projects/climate-cascade/projects/ApTranscriptome/data/A22-oases-assembly"
 
 mkdir -p $outdir 
+mkdir -p $trinityout
 
-# Run velveth to make hash tables. Use k of 23 based on digital normalization to k cutoff of 23. 
-# Include both paired reads (.notCombined) and unpaired that were merged 
+## Assemble using velvet-oases
+# Include both paired reads (.notCombined) and unpaired (.extendedFrags) that were merged 
 
-/opt/software/oases/scripts/oases_pipeline.py -m 19 -M 25 -o $outdir -d " -fastq -shortPaired ${indir}/A22-00.notCombined.fastq.out.keep.keep ${indir}/A22-03.notCombined.fastq.out.keep.keep ${indir}/A22-07.notCombined.fastq.out.keep.keep ${indir}/A22-10.notCombined.fastq.out.keep.keep ${indir}/A22-14.notCombined.fastq.out.keep.keep ${indir}/A22-17.notCombined.fastq.out.keep.keep ${indir}/A22-21.notCombined.fastq.out.keep.keep ${indir}/A22-24.notCombined.fastq.out.keep.keep ${indir}/A22-28.notCombined.fastq.out.keep.keep ${indir}/A22-31.notCombined.fastq.out.keep.keep ${indir}/A22-35.notCombined.fastq.out.keep.keep ${indir}/A22-38.notCombined.fastq.out.keep.keep -fastq -short ${indir}/A22-00.extendedFrags.fastq.keep.keep ${indir}/A22-03.extendedFrags.fastq.keep.keep ${indir}/A22-07.extendedFrags.fastq.keep.keep ${indir}/A22-10.extendedFrags.fastq.keep.keep ${indir}/A22-14.extendedFrags.fastq.keep.keep ${indir}/A22-17.extendedFrags.fastq.keep.keep ${indir}/A22-21.extendedFrags.fastq.keep.keep ${indir}/A22-24.extendedFrags.fastq.keep.keep ${indir}/A22-28.extendedFrags.fastq.keep.keep ${indir}/A22-31.extendedFrags.fastq.keep.keep ${indir}/A22-35.extendedFrags.fastq.keep.keep ${indir}/A22-38.extendedFrags.fastq.keep.keep" -p " -min_trans_lgth 200 -ins_length 180 "
+# velveth. Use k of 21 based on digital normalization to k cutoff of 20. 
+velveth $outdir/A22-oases-21 21 -fastq -short ${indir}/A22-**.extendedFrags.fastq.keep.abundfilt -shortPaired ${indir}/A22-**-.notCombined.fastq.keep.abundfilt.pe  ${indir}/A22-**-.notCombined.fastq.keep.abundfilt.se 
+
+# velvetg 
+velvetg $outdir/A22-oases-21 -read_trkg yes
+
+# oases
+oases $outdir/A22-oases-21 -ins_length 200
+
+# Summary statistics
+python /opt/software/khmer/sandbox/assemstats2.py 100 $outdir/A22-oases-21/transcripts.fa
 
 
+
+## Assemble using Trinity
+# concatenate files into left and right
+Trinity.pl --seqType fq --JM 50G --left A22-r1.fq --right A22-r2.fq --output $trinityout 
