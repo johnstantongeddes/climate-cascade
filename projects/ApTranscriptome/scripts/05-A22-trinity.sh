@@ -40,5 +40,6 @@ cat *.extendedFrags.fastq.keep.abundfilt >> A22-r1.fq
 Trinity.pl --seqType fq --JM 50G --left A22-r1.fq --right A22-r2.fq --output $trinityout 
 
 # Summary statistics
-python /opt/software/khmer/sandbox/assemstats2.py 100 $outdir/A22-oases-21/transcripts.fa
+cd ../../scripts/
+python /home/scripts/khmer/sandbox/assemstats2.py 100 $outdir/Trinity.fasta
 

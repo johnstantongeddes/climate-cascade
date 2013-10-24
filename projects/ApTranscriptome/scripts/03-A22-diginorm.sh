@@ -17,7 +17,7 @@ outdir="/home/projects/climate-cascade/projects/ApTranscriptome/data/diginorm"
 mkdir -p $outdir
 
 # Set variables
-samples=(A22-00 A22-03 A22-07 A22-10 A22-14 A22-17 A22-21 A22-24 A22-28 A22-31 A22-35 A22-38 A22-spikein)
+samples=(A22-00 A22-03 A22-07 A22-10 A22-14 A22-17 A22-21 A22-24 A22-28 A22-31 A22-35 A22-38 A22-si)
 
 # Make output directory for files
 mkdir -p $outdir

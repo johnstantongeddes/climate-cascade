@@ -29,11 +29,26 @@ python /opt/software/khmer/sandbox/assemstats2.py 100 $oasesout/A22-oases-21/tra
 
 ##---------Post-process contigs-----------------------------
 
-# Use [CAP3]() to reduce redundancy in contigs
+# Use [CAP3](http://computing.bio.cam.ac.uk/local/doc/cap3.txt) to reduce redundancy in contigs
+# -f 80 # max gap length of overlap 
+# -k 0 # specifies no read clipping as reads already quality trimmed
+# -p 95 # require 95% overlap similarity
+# -r 0 # all reads in forward orientation as already assembled
+#
+# specify reads are in forward orientation only '-r 0'
+# output is a file of combined reads (*.cap.contigs) and remaining un-combined reads (*.cap.singlets)
+
 cd $oasesout
 cap3 A22-oases-21/transcripts.fa > transcripts.out
-mv transcripts.out
-mv transcripts.fa.c* ../
+
+# Move files
+mkdir -p cap3
+mv transcripts.out cap3
+mv transcripts.fa.c* cap3
+
+# Concatenate contigs and singlets as final transcripts file
+cd cap3
+cat transcripts.fa.cap.contigs transcripts.fa.cap.singlets > transcripts-cap3.fa
 
 # Summary statistics
-python /opt/software/khmer/sandbox/assemstats2.py 100 transcripts.fa.cap.contigs
+python /opt/software/khmer/sandbox/assemstats2.py 100 transcripts-cap3.fa
