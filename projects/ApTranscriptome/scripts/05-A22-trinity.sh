@@ -7,14 +7,17 @@
 ## Modified: 2013-07-30 
 ###################################################################################################
 
-indir="/home/projects/climate-cascade/projects/ApTranscriptome/data/diginorm"
-trinityout="/home/projects/climate-cascade/projects/ApTranscriptome/data/A22-oases-assembly"
+indir="../data/diginorm"
+trinityout="../data/A22-merge-diginorm-trinity"
 
 mkdir -p $trinityout
 
 ## Assemble using Trinity
-# split interleaved files
-for i in *.extendedFrags.fastq.keep.abundfilt
+# requires reads split into 'left' and 'right' files
+
+# split paired-end .notCombined reads that passed through 
+cd $indir
+for i in *.notCombined.fastq.out.keep.abundfilt.pe
 do
     python /home/scripts/khmer/scripts/split-paired-reads.py $i
 done
@@ -22,9 +25,16 @@ done
 # concatenate files into left and right
 cat *.1 > A22-r1.fq
 cat *.2 > A22-r2.fq
+# confirm that files are correct length
+length1=`wc -l < A22-r1.fq`
+length2=`wc -l < A22-r2.fq`
+sum=$(bc <<< "scale=0;($length1 + $length2)")
+wc -l A22-**.notCombined.fastq.out.keep.abundfilt.pe
 
-# add unpaired reads to one file
-cat *.notCombined.fastq.keep.abundfilt >> A22-r1.fq
+# add single-end unpaired reads to one file
+cat *.notCombined.fastq.out.keep.abundfilt.se >> A22-r1.fq
+# add single-end extendedFrags to one file
+cat *.extendedFrags.fastq.keep.abundfilt >> A22-r1.fq
 
 # run trinity
 Trinity.pl --seqType fq --JM 50G --left A22-r1.fq --right A22-r2.fq --output $trinityout 
