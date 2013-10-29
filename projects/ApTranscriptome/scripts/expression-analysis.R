@@ -31,9 +31,6 @@ setwd("../data/A22-merge-diginorm-oases-assembly/sailfish-out")
 #head(test)
 #dcastest <- dcast(melt(test, id.vars="transcript", ID~variable + TPM))
 
-
-
-
 quant00 <- read.table("A22-00_quant/quant_bias_corrected.sf", sep="\t")
 colnames(quant00) <- c("transcript", "length", "TPM00", "RPKM")
 head(quant00)
@@ -88,7 +85,7 @@ quanttest <- quantall[1:50,]
 
 signif <- vector(length=0)
 
-for(i in 1:nrow(quantall)) {
+for(i in 1:nrow(quanttest)) {
     #print(i)
     out <- lm(unlist(quantall[i,3:14]) ~ temps + I(temps^2))
     #print(anova(out))
@@ -103,6 +100,11 @@ length(signif)
 signif.transcripts <- quantall[signif, ]
 
 dim(signif.transcripts)
+
+signif.transcripts[1,3:14]
+scale(unlist(signif.transcripts[1,3:14]))
+
+
 
 ex.max <- max(unlist(signif.transcripts[,3:14]))
 ex.min <- min(unlist(signif.transcripts[,3:14]))
