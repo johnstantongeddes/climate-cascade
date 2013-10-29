@@ -2,7 +2,7 @@
 
 # shell script to generate default folders for a new project
 
-for i in SDM phylogeny CT-max-min transcriptome GxL Hsp chromosomes developmental-traits
+for i in ApAdaPt
 do
 		mkdir $i
 		mkdir $i/data
