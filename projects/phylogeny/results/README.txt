@@ -1,1 +1,0 @@
-Directory to store results if they are not stored in scripts directory. Best practice is to have results from your scripts write to this directory, with filedate as part of the result file name to avoid overwriting previous results.
